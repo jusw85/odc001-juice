@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyController : PoolObject, IDamageable {
 
     public float moveSpeed = 2f;
+    public GameObject enemyExplosion;
 
     private void Start() {
     }
@@ -18,6 +19,7 @@ public class EnemyController : PoolObject, IDamageable {
 
     public void Damage() {
         Destroy();
+        Instantiate(enemyExplosion, transform.position, Quaternion.identity);
     }
 
 }
