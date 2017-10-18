@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour, IDamageable {
     public float bulletSpeed = 4f;
     public GameObject bullet;
     public GameObject deathExplosion;
+    public GameObject rocketParticle;
 
     private PoolManager poolManager;
 
     private Rigidbody2D rb2d;
     private Raycaster raycaster;
     private Transform bulletSpawnPoint;
+    private Transform rocketSpawnPoint;
 
     private Vector2 moveInput;
     private bool canFire = true;
@@ -25,11 +27,13 @@ public class PlayerController : MonoBehaviour, IDamageable {
         rb2d = GetComponent<Rigidbody2D>();
         raycaster = GetComponent<Raycaster>();
         bulletSpawnPoint = transform.Find("BulletSpawnPoint");
+        rocketSpawnPoint = transform.Find("RocketSpawnPoint");
     }
 
     private void Start() {
         poolManager = FindObjectOfType<PoolManager>();
         poolManager.CreatePool(bullet, 100);
+        Instantiate(rocketParticle, rocketSpawnPoint);
     }
 
     private void Update() {
