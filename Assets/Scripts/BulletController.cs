@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BulletController : PoolObject {
 
+    public float lifetime = 10f;
     public float speed = 4f;
     [NonSerialized]
     public Vector2 direction = Vector2.up;
@@ -17,12 +18,22 @@ public class BulletController : PoolObject {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    private void Start() {
+        StartCoroutine(DestroyAfterLifetime());
+    }
+
     private void FixedUpdate() {
         rb2d.velocity = direction * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-
+        var tag = collision.gameObject.tag;
+        if (tag.Equals(triggerTag)) {
+        }
     }
 
+    private IEnumerator DestroyAfterLifetime() {
+        yield return new WaitForSeconds(lifetime);
+        Destroy();
+    }
 }
