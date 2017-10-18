@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 1f;
+    public float moveSpeed = 1f;
+    //[Range(0.01f, 5f)]
     public float fireCooldown = 0.5f;
+    public float bulletSpeed = 4f;
     public GameObject bullet;
+
+    private PoolManager poolManager;
 
     private Rigidbody2D rb2d;
     private Raycaster raycaster;
@@ -22,18 +26,24 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Start() {
+        poolManager = FindObjectOfType<PoolManager>();
+        poolManager.CreatePool(bullet, 100);
     }
 
     private void Update() {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        var velocity = moveInput * speed;
+        var velocity = moveInput * moveSpeed;
         Vector3 displacement = velocity * Time.deltaTime;
         Move(displacement);
 
         var isFirePressed = Input.GetButton("Jump");
         if (isFirePressed && canFire) {
             canFire = false;
-            Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            var bulletObj = poolManager.ReuseObject(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            var bulletController = bulletObj.GetComponent<BulletController>();
+            bulletController.speed = bulletSpeed;
+            bulletController.direction = Vector2.up;
+            bulletController.triggerTag = "Enemy";
             StartCoroutine(FireCoolDownRoutine());
         }
     }
@@ -50,6 +60,12 @@ public class PlayerController : MonoBehaviour {
         raycaster.HandleCollisions(ref displacement, out collisions);
 
         transform.Translate(displacement);
+    }
+
+    private void OnValidate() {
+        moveSpeed = Mathf.Clamp(moveSpeed, 0f, float.MaxValue);
+        fireCooldown = Mathf.Clamp(fireCooldown, 0f, float.MaxValue);
+        bulletSpeed = Mathf.Clamp(bulletSpeed, 0f, float.MaxValue);
     }
 
 }

@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour {
+public class BulletController : PoolObject {
 
     public float speed = 4f;
-
     [NonSerialized]
     public Vector2 direction = Vector2.up;
     [NonSerialized]
-    public string triggerTag = "Player";
+    public string triggerTag = "Enemy";
 
     private Rigidbody2D rb2d;
 
