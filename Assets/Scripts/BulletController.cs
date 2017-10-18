@@ -33,6 +33,7 @@ public class BulletController : PoolObject {
             if (damageable != null) {
                 damageable.Damage();
             }
+            Destroy();
         }
     }
 

@@ -3,15 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, IDamageable {
+public class EnemyController : PoolObject, IDamageable {
 
     public float moveSpeed = 2f;
 
-    //private PoolManager poolManager;
-
     private void Start() {
-        //poolManager = FindObjectOfType<PoolManager>();
-        //poolManager.CreatePool(bullet, 100);
     }
 
     private void Update() {
@@ -21,7 +17,7 @@ public class EnemyController : MonoBehaviour, IDamageable {
     }
 
     public void Damage() {
-        Destroy(gameObject);
+        Destroy();
     }
 
 }
