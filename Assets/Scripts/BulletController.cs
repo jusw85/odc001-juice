@@ -27,8 +27,12 @@ public class BulletController : PoolObject {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        var tag = collision.gameObject.tag;
-        if (tag.Equals(triggerTag)) {
+        var obj = collision.gameObject;
+        if (obj.tag.Equals(triggerTag)) {
+            var damageable = obj.GetComponent<IDamageable>();
+            if (damageable != null) {
+                damageable.Damage();
+            }
         }
     }
 
