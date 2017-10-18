@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1730576327481252}
+  m_RootGameObject: {fileID: 1276075061723952}
   m_IsPrefabParent: 1
---- !u!1 &1730576327481252
+--- !u!1 &1276075061723952
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4027231245136796}
-  - component: {fileID: 198203013125707350}
-  - component: {fileID: 199416960511973304}
+  - component: {fileID: 4423380996813600}
+  - component: {fileID: 198702689596342842}
+  - component: {fileID: 199862399895369692}
   m_Layer: 0
   m_Name: PS_rocket
   m_TagString: Untagged
@@ -28,25 +28,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4027231245136796
+--- !u!4 &4423380996813600
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730576327481252}
+  m_GameObject: {fileID: 1276075061723952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.03, y: 4.93, z: 0}
+  m_LocalPosition: {x: -0.1, y: -7.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &198203013125707350
+--- !u!198 &198702689596342842
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730576327481252}
+  m_GameObject: {fileID: 1276075061723952}
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
@@ -101,14 +101,14 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -510781405
+  randomSeed: 1239459009
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -253,8 +253,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.5
+      scalar: 1
+      minScalar: 0.65
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -503,7 +503,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.16
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -775,15 +775,15 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
-          inSlope: 1.4442565
-          outSlope: 1.4442565
+          value: 0.14865226
+          inSlope: 2.3289125
+          outSlope: 2.3289125
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: 0
-          inSlope: -0.3547297
-          outSlope: -0.3547297
+          value: 0.108112335
+          inSlope: -0.59487295
+          outSlope: -0.59487295
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -1604,7 +1604,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.57
+      scalar: 1.87
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1650,7 +1650,7 @@ ParticleSystem:
     drag:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.63
+      scalar: 2.66
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3379,13 +3379,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199416960511973304
+--- !u!199 &199862399895369692
 ParticleSystemRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730576327481252}
+  m_GameObject: {fileID: 1276075061723952}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
