@@ -211,6 +211,8 @@ MonoBehaviour:
   fireCooldown: 0.5
   bulletSpeed: 6
   bullet: {fileID: 1557069102059572, guid: 810131c0b7057a14e833a329764fb80e, type: 2}
+  deathExplosion: {fileID: 1997061934377348, guid: c2996afac488ebe4baa74e0f2302848e,
+    type: 2}
 --- !u!198 &198170466479600184
 ParticleSystem:
   m_ObjectHideFlags: 1

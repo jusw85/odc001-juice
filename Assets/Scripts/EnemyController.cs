@@ -22,4 +22,14 @@ public class EnemyController : PoolObject, IDamageable {
         Instantiate(enemyExplosion, transform.position, Quaternion.identity);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        var obj = collision.gameObject;
+        if (obj.tag.Equals("Player")) {
+            var damageable = obj.GetComponent<IDamageable>();
+            if (damageable != null) {
+                damageable.Damage();
+            }
+            Destroy();
+        }
+    }
 }

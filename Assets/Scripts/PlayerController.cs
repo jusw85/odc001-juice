@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour, IDamageable {
 
     public float moveSpeed = 1f;
     //[Range(0.01f, 5f)]
     public float fireCooldown = 0.5f;
     public float bulletSpeed = 4f;
     public GameObject bullet;
+    public GameObject deathExplosion;
 
     private PoolManager poolManager;
 
@@ -68,4 +70,8 @@ public class PlayerController : MonoBehaviour {
         bulletSpeed = Mathf.Clamp(bulletSpeed, 0f, float.MaxValue);
     }
 
+    public void Damage() {
+        Instantiate(deathExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }
